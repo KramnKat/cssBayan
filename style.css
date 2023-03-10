@@ -26,7 +26,6 @@ body {
    font-size: 1em;
    color: var(--black-text-color);
    background: linear-gradient(45deg, #EECFBA, #C5DDE8);
-   ;
 }
 
 .container {
@@ -56,6 +55,7 @@ body {
    flex-direction: column;
    width: 100%;
    border-bottom: 2px solid rgb(113, 113, 113, 0.3);
+   border-image: linear-gradient(to right, transparent, #6f8d9b, transparent) 1;
    /* box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.25); */
    padding-bottom: 1em;
 }
@@ -82,10 +82,30 @@ body {
    display: none;
 }
 
+.accordion__body-content {
+   transition: 0.5s;
+}
+
+.accordeon__input:checked+.accordeon__body {
+   display: block;
+   animation: shows 1s;
+   transition: animation 1s ease-out;
+}
+
 .accordeon__img {
    display: block;
    width: 15vw;
    height: 30vh;
    object-fit: fill;
    border-radius: 1em;
+}
+
+@keyframes shows {
+   from {
+      opacity: 0;
+   }
+
+   to {
+      opacity: 1;
+   }
 }
