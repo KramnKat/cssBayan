@@ -61,7 +61,8 @@ body {
 }
 
 .accordeon__title {
-   display: block;
+   display: flex;
+   justify-content: space-between;
    font-family: 'Inter', sans-serif;
    font-weight: 700;
    font-size: 1.5em;
@@ -86,7 +87,7 @@ body {
    transition: 0.5s;
 }
 
-.accordeon__input:checked+.accordeon__body {
+.accordeon__input:checked~.accordeon__body {
    display: block;
    animation: shows 1s;
    transition: animation 1s ease-out;
@@ -108,4 +109,20 @@ body {
    to {
       opacity: 1;
    }
+}
+
+.accordeon__title:hover~.accordeon__body {
+   display: block;
+   animation: shows 1s;
+   transition: animation 1s ease-out;
+}
+
+.accordeon__input:checked~.accordeon__title .accordeon__icon {
+   transform: rotate(45deg);
+   transition: 0.4s;
+}
+
+.accordeon__title:hover .accordeon__icon {
+   transform: rotate(45deg);
+   transition: 0.4s;
 }
