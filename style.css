@@ -14,7 +14,12 @@
    box-sizing: border-box;
    padding: 0;
    margin: 0;
+
    scroll-behavior: smooth;
+}
+
+html {
+   overflow-y: scroll;
 }
 
 body {
@@ -28,8 +33,12 @@ body {
    background: linear-gradient(45deg, #EECFBA, #C5DDE8);
 }
 
+label {
+   color: var(--text-light-color);
+}
+
 .container {
-   max-width: 75vw;
+   max-width: 85vw;
    margin: 0 auto;
    padding: 2% 10%;
 }
@@ -40,7 +49,8 @@ body {
    font-size: 2em;
    line-height: 2em;
    color: var(--black-text-color);
-   border-bottom: 2px solid rgb(113, 113, 113, 0.3);
+   border-bottom: 2px solid;
+   border-image: linear-gradient(to right, transparent, #636060, transparent) 1;
 }
 
 .accordeon {
@@ -48,13 +58,15 @@ body {
    flex-direction: column;
    gap: 1em;
    padding-top: 1em;
+   cursor: pointer;
+   transition: 0.5s;
 }
 
 .accordeon__item {
    display: flex;
    flex-direction: column;
    width: 100%;
-   border-bottom: 2px solid rgb(113, 113, 113, 0.3);
+   border-bottom: 2px solid;
    border-image: linear-gradient(to right, transparent, #6f8d9b, transparent) 1;
    /* box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.25); */
    padding-bottom: 1em;
@@ -67,8 +79,13 @@ body {
    font-weight: 700;
    font-size: 1.5em;
    line-height: 1.5em;
-   color: var(--black-text-color);
    cursor: pointer;
+}
+
+.accordeon__icon {
+   display: none;
+   width: 1em;
+   height: 1em;
 }
 
 .accordeon__input {
@@ -85,12 +102,6 @@ body {
 
 .accordion__body-content {
    transition: 0.5s;
-}
-
-.accordeon__input:checked~.accordeon__body {
-   display: block;
-   animation: shows 1s;
-   transition: animation 1s ease-out;
 }
 
 .accordeon__img {
@@ -111,7 +122,22 @@ body {
    }
 }
 
-.accordeon__title:hover~.accordeon__body {
+/*Change accordeon appearance on hover*/
+
+.accordeon:hover .accordeon__icon {
+   display: block;
+   animation: shows 0.9s;
+   transition: animation 0.8s ease-out;
+}
+
+.accordeon:hover label {
+   color: var(--black-text-color);
+   transition: 0.9s;
+}
+
+/*Showing mem on click*/
+
+.accordeon__input:checked~.accordeon__body {
    display: block;
    animation: shows 1s;
    transition: animation 1s ease-out;
@@ -122,7 +148,33 @@ body {
    transition: 0.4s;
 }
 
+/*Showing mem on hover*/
+
+.accordeon__title:hover~.accordeon__body {
+   display: block;
+   animation: shows 1s;
+   transition: animation 1s ease-out;
+}
+
 .accordeon__title:hover .accordeon__icon {
    transform: rotate(45deg);
    transition: 0.4s;
+}
+
+@media screen and (min-width: 1920px) {
+   .container {
+      max-width: 80vw;
+   }
+}
+
+@media screen and (min-width: 1440px) {
+   .container {
+      max-width: 70vw;
+   }
+}
+
+@media screen and (min-width: 820px) {
+   .container {
+      max-width: 65vw;
+   }
 }
