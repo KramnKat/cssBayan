@@ -36,9 +36,9 @@ label {
 }
 
 .container {
-   max-width: 95vw;
+   max-width: calc(100% - 5%);
    margin: 0 auto;
-   padding: 2% 10%;
+   padding: 2% 5%;
 }
 
 .title {
@@ -125,7 +125,7 @@ label {
 @media screen and (min-width: 321px) and (max-width: 819.9px) {
 
    .container {
-      max-width: 85vw;
+      max-width: calc(100%-15%);
       padding: 2% 5%;
    }
 
@@ -138,9 +138,9 @@ label {
    }
 }
 
-@media screen and (min-width: 820px) and (max-width: 1919.9px) {
+@media screen and (min-width: 820px) and (max-width: 1919.95px) {
    .container {
-      max-width: 80vw;
+      max-width: calc(100% - 20%);
       padding: 2% 5%;
    }
 
@@ -158,14 +158,14 @@ label {
    }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1919.99px) {
    label {
       color: var(--text-light-color);
    }
 
    .container {
-      max-width: 75vw;
-      padding: 2% 10%;
+      max-width: 100%;
+      padding: 2% 15%;
    }
 
    .title {
