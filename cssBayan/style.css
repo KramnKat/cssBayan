@@ -32,11 +32,11 @@ body {
 }
 
 label {
-   color: var(--text-light-color);
+   color: var(--black-text-color);
 }
 
 .container {
-   max-width: 85vw;
+   max-width: 95vw;
    margin: 0 auto;
    padding: 2% 10%;
 }
@@ -44,10 +44,10 @@ label {
 .title {
    font-family: 'Inter', sans-serif;
    font-weight: 700;
-   font-size: 2em;
+   font-size: 1.5em;
    line-height: 2em;
    color: var(--black-text-color);
-   border-bottom: 2px solid;
+   border-bottom: 0.05em solid;
    border-image: linear-gradient(to right, transparent, #636060, transparent) 1;
 }
 
@@ -64,7 +64,7 @@ label {
    display: flex;
    flex-direction: column;
    width: 100%;
-   border-bottom: 2px solid;
+   border-bottom: 0.1em solid;
    border-image: linear-gradient(to right, transparent, #6f8d9b, transparent) 1;
    padding-bottom: 1em;
 }
@@ -74,7 +74,7 @@ label {
    flex-direction: column;
    font-family: 'Inter', sans-serif;
    font-weight: 700;
-   font-size: 1.5em;
+   font-size: 1em;
    line-height: 1.5em;
    cursor: pointer;
 }
@@ -105,24 +105,10 @@ label {
 
 .accordeon__img {
    display: block;
-   max-width: 20vw;
-   max-height: 35vh;
+   max-width: 50vw;
+   max-height: 65vh;
    object-fit: fill;
    border-radius: 1em;
-}
-
-
-/*Change accordeon appearance on hover*/
-
-.accordeon:hover .accordeon__icon {
-   width: 1em;
-   height: 1em;
-   transition: height 0.8s ease-out;
-}
-
-.accordeon:hover label {
-   color: var(--black-text-color);
-   transition: color 0.9s;
 }
 
 /*Showing mem on click*/
@@ -136,40 +122,87 @@ label {
    transition: transform 0.4s;
 }
 
-/*Showing mem on hover*/
+@media screen and (min-width: 321px) and (max-width: 819.9px) {
 
-.accordeon__item:hover .accordeon__body {
-   max-height: 100vh;
-   scroll-behavior: smooth;
+   .container {
+      max-width: 85vw;
+      padding: 2% 5%;
+   }
+
+   .title {
+      font-size: 1.6em;
+   }
+
+   .accordeon__button {
+      font-size: 1.3em;
+   }
 }
 
-.accordeon__item:hover .accordeon__icon {
-   transform: rotate(45deg);
-   transition: 0.4s;
-}
-
-@media screen and (min-width: 1440px) and (max-width: 1919.91px) {
+@media screen and (min-width: 820px) and (max-width: 1919.9px) {
    .container {
       max-width: 80vw;
+      padding: 2% 5%;
    }
 
    .title {
-      font-size: 1.5em;
+      font-size: 2em;
+   }
+
+   .accordeon__button {
+      font-size: 1.6em;
+   }
+
+   .accordeon__img {
+      max-width: 40vw;
+      max-height: 55vh;
    }
 }
 
-@media screen and (min-width: 820px) and (max-width: 1439.9px) {
+@media screen and (min-width: 1920px) {
+   label {
+      color: var(--text-light-color);
+   }
+
    .container {
-      max-width: 70vw;
+      max-width: 75vw;
+      padding: 2% 10%;
    }
 
    .title {
-      font-size: 1.5em;
+      font-size: 2.5em;
    }
-}
 
-@media screen and (min-width: 820px) and (max-width: 320px) {
-   .container {
-      max-width: 65vw;
+   .accordeon__button {
+      font-size: 2em;
+   }
+
+   .accordeon__img {
+      max-width: 35vw;
+      max-height: 50vh;
+   }
+
+   /*Change accordeon appearance on hover*/
+
+   .accordeon:hover .accordeon__icon {
+      width: 1em;
+      height: 1em;
+      transition: height 0.8s ease-out;
+   }
+
+   .accordeon:hover label {
+      color: var(--black-text-color);
+      transition: color 0.9s;
+   }
+
+   /*Showing mem on hover*/
+
+   .accordeon__item:hover .accordeon__body {
+      max-height: 100vh;
+      scroll-behavior: smooth;
+   }
+
+   .accordeon__item:hover .accordeon__icon {
+      transform: rotate(45deg);
+      transition: 0.4s;
    }
 }
