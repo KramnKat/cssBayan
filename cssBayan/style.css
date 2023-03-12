@@ -14,8 +14,6 @@
    box-sizing: border-box;
    padding: 0;
    margin: 0;
-
-   scroll-behavior: smooth;
 }
 
 html {
@@ -68,7 +66,6 @@ label {
    width: 100%;
    border-bottom: 2px solid;
    border-image: linear-gradient(to right, transparent, #6f8d9b, transparent) 1;
-   /* box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.25); */
    padding-bottom: 1em;
 }
 
@@ -83,9 +80,8 @@ label {
 }
 
 .accordeon__icon {
-   display: none;
-   width: 1em;
-   height: 1em;
+   height: 0;
+   width: 0;
 }
 
 .accordeon__input {
@@ -97,66 +93,52 @@ label {
 
 .accordeon__body {
    align-self: center;
-   display: none;
-}
-
-.accordion__body-content {
-   transition: 0.5s;
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height 0.5s ease-in-out;
 }
 
 .accordeon__img {
    display: block;
-   width: 15vw;
-   height: 30vh;
+   max-width: 20vw;
+   max-height: 35vh;
    object-fit: fill;
    border-radius: 1em;
 }
 
-@keyframes shows {
-   from {
-      opacity: 0;
-   }
-
-   to {
-      opacity: 1;
-   }
-}
 
 /*Change accordeon appearance on hover*/
 
 .accordeon:hover .accordeon__icon {
-   display: block;
-   animation: shows 0.9s;
-   transition: animation 0.8s ease-out;
+   width: 1em;
+   height: 1em;
+   transition: height 0.8s ease-out;
 }
 
 .accordeon:hover label {
    color: var(--black-text-color);
-   transition: 0.9s;
+   transition: color 0.9s;
 }
 
 /*Showing mem on click*/
 
 .accordeon__input:checked~.accordeon__body {
-   display: block;
-   animation: shows 1s;
-   transition: animation 1s ease-out;
+   max-height: 100vh;
 }
 
 .accordeon__input:checked~.accordeon__title .accordeon__icon {
    transform: rotate(45deg);
-   transition: 0.4s;
+   transition: transform 0.4s;
 }
 
 /*Showing mem on hover*/
 
-.accordeon__title:hover~.accordeon__body {
-   display: block;
-   animation: shows 1s;
-   transition: animation 1s ease-out;
+.accordeon__item:hover .accordeon__body {
+   max-height: 100vh;
+   scroll-behavior: smooth;
 }
 
-.accordeon__title:hover .accordeon__icon {
+.accordeon__item:hover .accordeon__icon {
    transform: rotate(45deg);
    transition: 0.4s;
 }
