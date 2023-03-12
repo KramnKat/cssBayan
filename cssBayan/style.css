@@ -69,14 +69,19 @@ label {
    padding-bottom: 1em;
 }
 
-.accordeon__title {
+.accordeon__button {
    display: flex;
-   justify-content: space-between;
+   flex-direction: column;
    font-family: 'Inter', sans-serif;
    font-weight: 700;
    font-size: 1.5em;
    line-height: 1.5em;
    cursor: pointer;
+}
+
+.accordeon__title {
+   display: flex;
+   justify-content: space-between;
 }
 
 .accordeon__icon {
@@ -122,11 +127,11 @@ label {
 
 /*Showing mem on click*/
 
-.accordeon__input:checked~.accordeon__body {
+.accordeon__input:checked~.accordeon__button .accordeon__body {
    max-height: 100vh;
 }
 
-.accordeon__input:checked~.accordeon__title .accordeon__icon {
+.accordeon__input:checked~.accordeon__button .accordeon__icon {
    transform: rotate(45deg);
    transition: transform 0.4s;
 }
@@ -143,19 +148,27 @@ label {
    transition: 0.4s;
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1440px) and (max-width: 1919.91px) {
    .container {
       max-width: 80vw;
    }
-}
 
-@media screen and (min-width: 1440px) {
-   .container {
-      max-width: 70vw;
+   .title {
+      font-size: 1.5em;
    }
 }
 
-@media screen and (min-width: 820px) {
+@media screen and (min-width: 820px) and (max-width: 1439.9px) {
+   .container {
+      max-width: 70vw;
+   }
+
+   .title {
+      font-size: 1.5em;
+   }
+}
+
+@media screen and (min-width: 820px) and (max-width: 320px) {
    .container {
       max-width: 65vw;
    }
